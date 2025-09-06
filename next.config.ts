@@ -1,9 +1,7 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  // output: 'export',
-  distDir: 'build', 
-  /* config options here */
+  distDir: 'build',
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -20,7 +18,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-};
 
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '50mb', // 👈 زود الـ limit (ممكن 10mb أو 50mb حسب احتياجك)
+    },
+  },
+};
 
 export default nextConfig;
